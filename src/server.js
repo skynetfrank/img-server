@@ -10,7 +10,6 @@ const app = express();
 //settings
 const port = process.env.PORT || 4000
 require('dotenv').config();
-app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', '.hbs');
 app.engine('.hbs', hbars({
@@ -36,7 +35,7 @@ app.use(multer({ storage }).single('image'));
 app.use(require('./routes/imageRouter.js'));
 
 app.listen(port, () => {
-  console.log("servidor listening en el puerto: ", app.get('port'));
+  console.log("servidor listening en el puerto: ", port);
 });
 
 
