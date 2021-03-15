@@ -8,6 +8,7 @@ const db = require('./database');
 const app = express();
 
 //settings
+const port = process.env.PORT || 4000
 require('dotenv').config();
 app.set('port', process.env.PORT || 4000);
 app.set('views', path.join(__dirname, 'views'));
@@ -34,7 +35,7 @@ app.use(multer({ storage }).single('image'));
 //Routes
 app.use(require('./routes/imageRouter.js'));
 
-app.listen(app.get('port'), () => {
+app.listen(port, () => {
   console.log("servidor listening en el puerto: ", app.get('port'));
 });
 
